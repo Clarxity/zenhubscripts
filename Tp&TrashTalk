@@ -1,0 +1,45 @@
+local plr = game.Players.LocalPlayer
+local chara = plr.Character
+
+mouse = game.Players.LocalPlayer:GetMouse()
+local uis =  game:GetService("UserInputService")
+local rp = game:GetService("ReplicatedStorage")
+local message1 = "Wayward Gem!"
+local message2 = "You're quite slow!"
+local message3 = "Over here!"
+local message4 = "Get on my level you dirt!"
+local message5 = "You can't match my flow!"
+local message6 = "I'm practically asleep."
+local message7 = "You can't keep up with this speed!"
+local message8 = "😴😴😴💤💤💤"
+local message9 = "Woosh!"
+
+uis.InputBegan:Connect(function(Input,IsTyping)
+	if IsTyping then return end
+	if Input.KeyCode == Enum.KeyCode.G then
+	    local pos = mouse.Hit
+        pos = CFrame.new(pos.X,pos.Y,pos.Z)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+        local chance = math.random(1,19)
+        
+        if chance == 1 then
+             rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message1, "All")
+        elseif chance == 2 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message2, "All")
+        elseif chance == 3 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message3, "All")
+        elseif chance == 4 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message4, "All")
+        elseif chance == 5 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message5, "All")
+        elseif chance == 6 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message6, "All")
+        elseif chance == 7 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message7, "All")
+        elseif chance == 8 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message8, "All")
+        elseif chance == 9 then
+            rp:WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest"):FireServer(message9, "All")
+        end
+	end
+end)
