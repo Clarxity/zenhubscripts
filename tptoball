@@ -1,0 +1,12 @@
+local plr = game.Players.LocalPlayer
+local chara = plr.Character
+mouse = game.Players.LocalPlayer:GetMouse()
+local uis =  game:GetService("UserInputService")
+local rp = game:GetService("ReplicatedStorage")
+
+uis.InputBegan:Connect(function(Input,IsTyping)
+	if IsTyping then return end
+	if Input.KeyCode == Enum.KeyCode.B then
+	    chara.HumanoidRootPart.CFrame = game.Workspace:FindFirstChild("Ball").CFrame
+	end
+end)
