@@ -1,7 +1,11 @@
+
 local isFlying = false
 local camera = workspace.CurrentCamera
-local char = game.Players.LocalPlayer.Character
-local hrp = char:WaitForChild("HumanoidRootPart")
+local chara = game.Players.LocalPlayer.Character
+local hrp = chara:WaitForChild("HumanoidRootPart")
+
+mouse = game.Players.LocalPlayer:GetMouse()
+local uis =  game:GetService("UserInputService")
 
 local bodyPos = Instance.new("BodyPosition")
 bodyPos.MaxForce = Vector3.new()
@@ -14,12 +18,15 @@ bodyGyro.MaxTorque = Vector3.new()
 bodyGyro.D = 10
 bodyGyro.Parent = hrp
 
-script.Parent.MouseButton1Click:Connect(function()
-	isFlying = not isFlying
-end)
-
-script.Parent.MouseButton2Click:Connect(function()
-	isFlying = false
+uis.InputBegan:Connect(function(Input,IsTyping)
+	if IsTyping then return end
+	if Input.KeyCode == Enum.KeyCode.B then
+	    if isFlying == true then
+	        isFlying = false
+	   else
+	       isFlying = true
+	   end
+	end
 end)
 
 game:GetService("RunService").RenderStepped:Connect(function()
